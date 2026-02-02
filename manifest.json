@@ -1,0 +1,60 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "server main system",
+        "description": "Main system for server scripts",
+        "version": [
+            2,
+            3,
+            1
+        ],
+        "uuid": "d1d86fb0-9bfa-49ac-9406-459956e3e93d",
+        "min_engine_version": [
+            1,
+            21,
+            130
+        ]
+    },
+    "modules": [
+        {
+            "type": "script",
+            "version": [
+                2,
+                3,
+                1
+            ],
+            "uuid": "b8589e11-01fb-4fc6-8a94-6b4005532be6",
+            "language": "javascript",
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "beta"
+        },
+        {
+            "module_name": "@minecraft/server-gametest",
+            "version": "beta"
+        },
+        {
+            "module_name": "@minecraft/server-admin",
+            "version": "beta"
+        },
+        {
+            "uuid": "58cb11ac-3b04-47a6-a745-5ce3ff737926",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ],
+    "capabilities": [
+        "script_eval"
+    ]
+}
