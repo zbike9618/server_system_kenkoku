@@ -11,7 +11,7 @@ export default {
         visualDistance: 32,
         renderRange: 7,
         warningSeconds: 45, // 範囲外に出てから死ぬまでの秒数
-        enabledDimensions: ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"] // 有効なディメンション
+        enabledDimensions: ["minecraft:overworld"] // 有効なディメンション
     },
     firstItems: [
         "wooden_sword 1",
