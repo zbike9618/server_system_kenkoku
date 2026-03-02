@@ -18,6 +18,7 @@ world.afterEvents.playerSpawn.subscribe(ev => {
                 player.runCommand(`give @s ${itemStr}`);
             }
             player.sendMessage("§aサーバー初参加ボーナスを受け取りました！");
+            world.sendMessage(`§a§l${player.name}§rがサーバーに初参加しました！`);
 
             // フラグを立てる
             player.setDynamicProperty("hasReceivedFirstItems", true);

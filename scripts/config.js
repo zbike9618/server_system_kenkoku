@@ -2,21 +2,44 @@ export default {
     dailyBonus: [
         { name: "経験値瓶", item: "experience_bottle 32", weight: 50 },
         { name: "ダイヤモンド", item: "diamond 5", weight: 10 },
-        { name: "鉄インゴット", item: "iron_ingot 10", weight: 40 }
+        { name: "鉄インゴット", item: "iron_ingot 10", weight: 40 },
+        { name: "オークの原木", item: "oak_log 64", weight: 70 }
     ],
     border: {
-        radius: 1000,
+        radius: 10000,
         center: { x: 0, z: 0 },
-        damageMultiplier: 0.1, // 1ブロック離れるごとの追加ダメージ
+        damageMultiplier: 0.5, // 1ブロック離れるごとの追加ダメージ
         visualDistance: 32,
         renderRange: 7,
-        warningSeconds: 45, // 範囲外に出てから死ぬまでの秒数
+        warningSeconds: 15, // 範囲外に出てから死ぬまでの秒数
         enabledDimensions: ["minecraft:overworld"] // 有効なディメンション
     },
     firstItems: [
-        "wooden_sword 1",
-        "wooden_pickaxe 1",
+        "stone_sword 1",
+        "stone_pickaxe 1",
         "bread 16",
-        "leather_chestplate 1"
+        "iron_chestplate 1",
+        "cw:toyphone 1",
+        "trenbankai:glock17 1",
+        "trenbankai:glock_mag 8"
+    ],
+    prohibitedItems: [
+        { id: "enchanted_golden_apple", name: "§c§lエンチャントされた金のリンゴ" },
+        { id: "totem_of_undying", name: "§c§l不死のトーテム" },
+        { id: "shield", name: "§c§l盾" },
+        { id: "trenbankai:rpg7", name: "§c§lRPG7" },
+        { id: "trenbankai:rpg7_rocket", name: "§c§lRPG7ロケット" }
+    ],
+    tips: [
+        "[tips] スマホはshopから購入可能です",
+        "[tips] ワールドボーダーの外に出るとダメージを喰らいます",
+        "[tips] /admincallで運営を呼び出せます\n※緊急の用件でのみ使用してください",
+        "[tips] webページはこちらから↓\nhttps://zbike9618.github.io/docs/\n不具合報告やお知らせを見ることができます。",
+        "[tips] マイクラ鯖の名前募集中です\nwebページから送信できます。\nhttps://zbike9618.github.io/docs/",
+        "[tips] !ai [質問内容] でAIに質問ができます",
+        "[tips] 現金化は /bankまたはスマホからできます",
+        "[tips] SeedMapの使用は禁止です",
+        "[tips] 戦争中以外で許可なく人をキルすることは禁止です",
+        "[tips] 2/24日よりも前に参加してバグが起きている方はロビーよりプレイヤーデータをリセットしてください",
     ]
 }
