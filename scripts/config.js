@@ -24,9 +24,12 @@ export default {
         "trenbankai:glock_mag 8"
     ],
     prohibitedItems: [
-        { id: "enchanted_golden_apple", name: "§c§lエンチャントされた金のリンゴ" },
+        // returnItemsを配列で追加することで、没収時にそのアイテムを付与（原材料返却）できます。
+        // （各アイテム名の後ろにスペースを空けて個数を指定します）
+        { id: "enchanted_golden_apple", name: "§c§lエンチャントされた金のリンゴ", returnItems: ["gold_block 8", "apple 1"] },
         { id: "totem_of_undying", name: "§c§l不死のトーテム" },
-        { id: "shield", name: "§c§l盾" },
+        // 例: 盾が没収されたら、鉄インゴット1個と木材6個を返却する
+        { id: "shield", name: "§c§l盾", returnItems: ["iron_ingot 1", "planks 6"] },
         { id: "trenbankai:rpg7", name: "§c§lRPG7" },
         { id: "trenbankai:rpg7_rocket", name: "§c§lRPG7ロケット" }
     ],
@@ -41,6 +44,7 @@ export default {
         "[tips] SeedMapの使用は禁止です",
         "[tips] 戦争中以外で許可なく人をキルすることは禁止です",
         "[tips] 2/24日よりも前に参加してバグが起きている方はロビーよりプレイヤーデータをリセットしてください",
+
         //"[tips] §l§c§l現在メンテナンス中§r§lです\n§4§l§l予告なく再起動する場合があります§r"
     ]
 }
