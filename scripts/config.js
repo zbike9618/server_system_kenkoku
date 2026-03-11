@@ -24,14 +24,14 @@ export default {
         "trenbankai:glock_mag 8"
     ],
     prohibitedItems: [
-        // returnItemsを配列で追加することで、没収時にそのアイテムを付与（原材料返却）できます。
-        // （各アイテム名の後ろにスペースを空けて個数を指定します）
         { id: "enchanted_golden_apple", name: "§c§lエンチャントされた金のリンゴ", returnItems: ["gold_block 8", "apple 1"] },
         { id: "totem_of_undying", name: "§c§l不死のトーテム" },
-        // 例: 盾が没収されたら、鉄インゴット1個と木材6個を返却する
         { id: "shield", name: "§c§l盾", returnItems: ["iron_ingot 1", "planks 6"] },
         { id: "trenbankai:rpg7", name: "§c§lRPG7" },
-        { id: "trenbankai:rpg7_rocket", name: "§c§lRPG7ロケット" }
+        { id: "trenbankai:rpg7_rocket", name: "§c§lRPG7ロケット" },
+        { id: "trenbankai:mossberg", name: "§c§lショットガン" },
+        { id: "trenbankai:bullet_12gauge", name: "§c§lショットガンシェル" },
+        { id: "trenbankai:m1014", name: "§c§lショットガン" }
     ],
     tips: [
         "[tips] スマホはshopから購入可能です",
