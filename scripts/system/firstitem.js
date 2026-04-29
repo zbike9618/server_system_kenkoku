@@ -17,8 +17,9 @@ world.afterEvents.playerSpawn.subscribe(ev => {
             for (const itemStr of items) {
                 player.runCommand(`give @s ${itemStr}`);
             }
+            player.sendMessage("§a建国鯖への参加ありがとうございます。\nこの鯖はオリジナルの建国アドオン(CountryWars)を使用しています。");
             player.sendMessage("§aサーバー初参加ボーナスを受け取りました！");
-            world.sendMessage(`§a§l${player.name}§rがサーバーに初参加しました！`);
+            world.sendMessage(`§a§l${player.name}§rがサーバーに初参加しました！\n皆さん挨拶しましょう！`);
 
             // フラグを立てる
             player.setDynamicProperty("hasReceivedFirstItems", true);
