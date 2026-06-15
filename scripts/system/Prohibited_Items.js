@@ -1,4 +1,4 @@
-import { system, world } from "@minecraft/server";
+import { system, world, EquipmentSlot } from "@minecraft/server";
 import { default as config } from "../config";
 
 system.runInterval(() => {
@@ -20,6 +20,20 @@ system.runInterval(() => {
                 if (prohibitedItem) {
                     if (!confiscatedCounts[itemName]) confiscatedCounts[itemName] = 0;
                     confiscatedCounts[itemName] += item.amount;
+                }
+            }
+        }
+
+        // オフハンドのアイテムも確認
+        const equippable = player.getComponent("equippable");
+        if (equippable) {
+            const offhandItem = equippable.getEquipment(EquipmentSlot.Offhand);
+            if (offhandItem) {
+                const itemName = offhandItem.typeId.replace("minecraft:", "");
+                const prohibitedItem = config.prohibitedItems.find(p => p.id === itemName);
+                if (prohibitedItem) {
+                    if (!confiscatedCounts[itemName]) confiscatedCounts[itemName] = 0;
+                    confiscatedCounts[itemName] += offhandItem.amount;
                 }
             }
         }
