@@ -1,14 +1,32 @@
 import { system, world, EquipmentSlot } from "@minecraft/server";
 import { default as config } from "../config";
 
+// 持ち物全体を確認する間隔(tick)。全員の全スロットを毎tick確認するとTPS低下の大きな原因になる
+// （2026-10 計測でスクリプト時間の約2割）。手とオフハンドは毎tick確認するので、使える状態の禁止アイテムはすぐ没収される
+const FULL_SCAN_INTERVAL = 20;
+
+function isProhibited(item) {
+    return !!item && config.prohibitedItems.some(p => p.id === item.typeId.replace("minecraft:", ""));
+}
+
 system.runInterval(() => {
+    const fullScan = system.currentTick % FULL_SCAN_INTERVAL === 0;
     world.getPlayers().forEach((player) => {
         const inv = player.getComponent("inventory").container;
+
+        // 手とオフハンドに禁止アイテムが無ければ、持ち物全体の確認は FULL_SCAN_INTERVAL ごとにする
+        // （見つかったときは全体を数え直すので、原材料を返却する個数は変わらない）
+        if (!fullScan
+            && !isProhibited(inv.getItem(player.selectedSlotIndex))
+            && !isProhibited(player.getComponent("equippable")?.getEquipment(EquipmentSlot.Offhand))) {
+            return;
+        }
 
         // インベントリ内の全スロットを確認
         let confiscatedCounts = {}; // { itemName: totalAmount }
 
-        for (let i = 0; i < inv.size; i++) {
+        const size = inv.size;
+        for (let i = 0; i < size; i++) {
             const item = inv.getItem(i);
 
             if (item) {
