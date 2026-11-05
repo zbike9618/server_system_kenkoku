@@ -6,7 +6,7 @@ export default {
         { name: "オークの原木", item: "oak_log 64", weight: 70 }
     ],
     border: {
-        radius: 10000,
+        radius: 15000,
         center: { x: 0, z: 0 },
         damageMultiplier: 0.5, // 1ブロック離れるごとの追加ダメージ
         visualDistance: 32,
